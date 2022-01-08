@@ -1,0 +1,38 @@
+/* basic styles*/
+
+.loading{
+    background: #ddd;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+.loading.text{
+    width: 100%;
+    height: 12px;
+}
+.loading.username{
+    width: 50%;
+    height: 20px;
+    margin-bottom: 15px;
+}
+.loading.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.loading.image{
+    width: 100%;
+    object-fit: contain;
+    background: #ddd;
+    max-width: 500px;
+    height: 500px;
+}
+
+.loading__post{
+    max-width: 500px;
+    margin-bottom: 45px;
+}
+.loading__header{
+    display: flex;
+    align-items: center;
+}

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Post.css'
 import { Avatar } from '@material-ui/core';
+import LoadingElement from '../Loading/LoadingElement';
 
 function Post({username, imageUrl, title, date, caption}) {
+    const [loaded, setLoaded] = useState(false);
     return (
         <div className="post">
             <div className='post__header'>
@@ -13,7 +15,17 @@ function Post({username, imageUrl, title, date, caption}) {
                 />
                 <h3>{username}</h3>
             </div>
-            <img className="post__image" src={imageUrl} alt={title}></img>
+            <div className="post__imagewrapper">
+                {loaded ? null :
+                <div><LoadingElement type="image"/></div>
+                }
+                <img className="post__image" 
+                    style={loaded ? {} : { display: 'none' }} 
+                    onLoad={() => setLoaded(true)} 
+                    src={imageUrl} 
+                    alt={title}>
+                </img>
+            </div>
             <h4 className="post__title">{title}</h4>
             <h5 className="post__date">{date}</h5>
             <h4 className="post__text">{caption}</h4>
@@ -22,3 +34,4 @@ function Post({username, imageUrl, title, date, caption}) {
 }
 
 export default Post;
+

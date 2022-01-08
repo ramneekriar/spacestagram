@@ -11,7 +11,7 @@ export default function Pictures(pageNumber) {
             axios({
                 method: 'GET',
                 url: 'https://api.nasa.gov/planetary/apod',
-                params: {count: 10, api_key: `${process.env.REACT_APP_API_KEY}`}
+                params: {count: 5, api_key: `${process.env.REACT_APP_API_KEY}`}
             }).then(res =>{
                 console.log(res.data)
                 setPictures(prevPictures => {
