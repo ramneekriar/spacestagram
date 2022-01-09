@@ -1,3 +1,5 @@
+/* post styles */
+
 .post{
     background-color: white;
     border: 1px solid lightgray;
@@ -13,6 +15,12 @@
     object-fit: cover;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
+}
+
+.post__buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4px;
 }
 
 .post__title{
@@ -38,4 +46,15 @@
 
 .post__avatar{
     margin-right: 10px;
+}
+
+/* icon styles */
+
+.favoriteFilled{
+    color: #fb3958 !important;
+}
+
+/* popover styles */
+.copy{
+    margin-left: 10px !important;
 }
