@@ -10,29 +10,76 @@
     height: 12px;
 }
 .loading.username{
-    width: 50%;
-    height: 20px;
+    width: 30%;
+    height: 18px;
     margin-bottom: 15px;
 }
 .loading.avatar{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    margin-top: 10px;
     margin-right: 10px;
+    margin-left: 15px;
 }
 .loading.image{
     width: 100%;
     object-fit: contain;
     background: #ddd;
-    max-width: 500px;
-    height: 500px;
+    max-width: 700px;
+    height: 700px;
 }
 
-.loading__post{
-    max-width: 500px;
+.loadingPost__wrapper{
+    max-width: 700px;
     margin-bottom: 45px;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 10px;
+    position: relative;
 }
-.loading__header{
+.loadingPost__header{
     display: flex;
     align-items: center;
+}
+
+/* themes */ 
+.loadingPost__wrapper.light{
+    background: #f2f2f2;
+}
+/* .loadingPost__wrapper.dark{
+    background: #444;
+}
+.loadingPost__wrapper.dark .loading{
+    background: #777;
+} */
+
+/* animation effects*/
+.shimmer__wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    animation: loading 2.5s infinite;
+    overflow: hidden;
+}
+.shimmer{
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.005);
+}
+
+@keyframes loading{
+    0%{
+        transform: translateX(-150%)
+    }
+    50%{
+        transform: translateX(-60%)
+    }
+    100%{
+        transform: translateX(+150%)
+    }
 }

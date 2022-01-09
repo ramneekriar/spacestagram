@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './Post.css'
 import { Avatar } from '@material-ui/core';
 import LoadingElement from '../Loading/LoadingElement';
+import avatar from '../../images/nasa-logo.jpeg';
 
 function Post({username, imageUrl, title, date, caption}) {
     const [loaded, setLoaded] = useState(false);
@@ -11,7 +12,8 @@ function Post({username, imageUrl, title, date, caption}) {
                 <Avatar
                     className="post__avatar"
                     alt="Nasa"
-                    src="./images/nasa-logo.jpeg"
+                    src={avatar}
+                    sx={{ width: 40, height: 40 }}
                 />
                 <h3>{username}</h3>
             </div>

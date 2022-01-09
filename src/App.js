@@ -2,7 +2,6 @@ import React, {useState, useRef, useCallback} from 'react'
 import './App.css';
 import Post from './components/Post/Post';
 import Pictures from './Pictures';
-import LoadingElement from './components/Loading/LoadingElement';
 import LoadingPost from './components/Loading/LoadingPost';
 
 function App() {
@@ -49,7 +48,6 @@ function App() {
           caption={picture.explanation}/></div>
         }
       })}
-      <div>{loading && 'Loading...'}</div>
       <div>{loading && [1, 2, 3, 4, 5].map((n) => <LoadingPost key={n}/>)}</div>
     </div>
   );

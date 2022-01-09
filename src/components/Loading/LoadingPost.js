@@ -1,21 +1,24 @@
 import LoadingElement from "./LoadingElement";
 import "./Loading.css";
+import Shimmer from "./Shimmer";
 
 const LoadingPost = () => {
     return (
-        <div className="loading__wrapper">
-            <div className="loading__post">
-                <div className="loading__header">
+        <div className="loadingPost__wrapper light">
+            <div className="loadingPost">
+                <div className="loadingPost__header">
                     <LoadingElement type="avatar"/>  
                     <LoadingElement type="username"/>
                 </div>
                 <LoadingElement type="image"/>
-                <LoadingElement type="title"/>
+                <LoadingElement type="text"/>
+                <LoadingElement type="text"/>
                 <LoadingElement type="text"/>
                 <LoadingElement type="text"/>
                 <LoadingElement type="text"/>
                 <LoadingElement type="text"/>
             </div>
+            <Shimmer />
         </div>
     )
 }

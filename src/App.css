@@ -8,10 +8,13 @@
 }
 
 .app__header{
+  position: sticky;
+  z-index: 1;
   background-color: white;
   padding: 20px;
   border-bottom: 1px solid lightgray;
   object-fit: contain;
+  top: 0;
 }
 
 .app__post{
