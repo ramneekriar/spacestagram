@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import './Post.css'
 import LoadingElement from '../Loading/LoadingElement';
-import { Avatar, Box, IconButton, Popover } from '@mui/material';
-import { ContentCopy, Favorite, FavoriteBorder, SaveAlt } from '@mui/icons-material';
+import { Avatar, Button, Box, IconButton, Popover, Tooltip } from '@mui/material';
+import { Close, Favorite, FavoriteBorder, SaveAlt } from '@mui/icons-material';
 import avatar from '../../images/nasa-logo.jpeg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -22,6 +22,7 @@ function Post({username, imageUrl, title, date, caption}) {
 
     const handleClose = () => {
         setAnchorEl(null);
+        setCopied(false);
     };
 
     return (
@@ -69,20 +70,19 @@ function Post({username, imageUrl, title, date, caption}) {
                     }}
                     >
                     <Box
-                    p={2} //padding
-                    >
-                    <input className='urlCopy'
-                        type="text"
-                        value={imageUrl}
-                        readOnly
-                        required
-                    />
-                    <CopyToClipboard text={imageUrl} onCopy={() => setCopied(true)}>
-                        <IconButton>
-                            <ContentCopy fontSize='large'/>
-                        </IconButton>
-                    </CopyToClipboard>
-                    {copied ? <p>Copied !</p> : null}
+                        p={2} //padding
+                        >
+                        <div class='close-button'>
+                            <IconButton 
+                                onClick={handleClose}>
+                                <Close fontSize='small'/>
+                            </IconButton>
+                        </div>
+                        <CopyToClipboard text={imageUrl} onCopy={() => setCopied(true)}>
+                            <Tooltip title={copied ? <p>Copied</p> : <p>Click to copy</p>} placement="top">
+                                <Button>{imageUrl}</Button>
+                            </Tooltip>
+                        </CopyToClipboard>
                     </Box>
                 </Popover>
             </div>

@@ -55,6 +55,8 @@
 }
 
 /* popover styles */
-.copy{
-    margin-left: 10px !important;
+.close-button{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -10px;
 }
