@@ -14,7 +14,6 @@ function Post({username, imageUrl, title, date, caption, isFav}) {
 
     const toggleFavorite = () => {
         setIsFavorite(isFavorite => !isFavorite);
-        savePost();
     }
 
     const handleSaveClick = (e) => {
@@ -29,10 +28,22 @@ function Post({username, imageUrl, title, date, caption, isFav}) {
         imageUrl: imageUrl
     }
 
+    useEffect(() => {
+        if (isFavorite) {
+            savePost();
+        } 
+        else{
+            unSavePost();
+        }    
+    }, [isFavorite])
+
     function savePost() {
         let data = JSON.stringify(post);
         window.localStorage.setItem(date, data);
-        console.log('Saved');
+    }
+
+    function unSavePost(){
+        window.localStorage.removeItem(date);
     }
 
     const open = Boolean(anchorEl);
