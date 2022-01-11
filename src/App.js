@@ -31,13 +31,23 @@ function App() {
     if (node) observer.current.observe(node)
   }, [loading, hasMore])
 
-  function refreshPage() {
-    window.location.reload(false);
-    setViewLikes(false);
+  function refreshHomePage() {
+      window.location.reload(false);
+      setViewLikes(false);  
+  }
+
+  function refreshCurrentPage () {
+    if (viewLikes){
+      setPostObjects([]);
+      getLikedPosts();
+    }
+    else{
+      refreshHomePage();
+    }
   }
 
   const toggleViewLikes = () => {
-    setViewLikes(true);
+      setViewLikes(true);
   }
 
   function getLikedPosts () {
@@ -52,6 +62,7 @@ function App() {
     if (viewLikes){
       getLikedPosts();
     }
+
   }, [viewLikes]);
 
   return (
@@ -60,7 +71,7 @@ function App() {
       <div className='app__header'>
         <h1 className='app__headerLogo app__nav-item'>Spacestagram</h1>
         <div className='app__nav-item'>
-          <IconButton type="button" aria-label="home page" onClick={refreshPage}>
+          <IconButton type="button" aria-label="home page" onClick={refreshHomePage}>
               <Tooltip title={<h2>Home</h2>} placement="bottom">
                 <Home fontSize='large' />
               </Tooltip>
@@ -70,8 +81,8 @@ function App() {
                 <Favorite className="favoriteFilled" fontSize='large' />
               </Tooltip>
             </IconButton>
-            <IconButton type="button" aria-label="refresh page" onClick={refreshPage}>
-              <Tooltip title={<h2>Refresh</h2>} placement="bottom">
+            <IconButton type="button" aria-label="refresh page" onClick={refreshCurrentPage}>
+              <Tooltip title={<h2>Refresh page</h2>} placement="bottom">
                 <Refresh fontSize='large' />
               </Tooltip>
             </IconButton>

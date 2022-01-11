@@ -39,12 +39,12 @@ function Post({username, imageUrl, title, date, caption, isFav}) {
     function savePost() {
         let data = JSON.stringify(post);
         window.localStorage.setItem(date, data);
-        console.log('Saved');
+        // console.log('Saved');
     }
 
     function unSavePost(){
         window.localStorage.removeItem(date);
-        console.log('Removed');
+        // console.log('Removed');
     }
 
     const open = Boolean(anchorEl);
