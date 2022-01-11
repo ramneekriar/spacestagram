@@ -13,7 +13,6 @@ export default function Pictures(pageNumber) {
                 url: 'https://api.nasa.gov/planetary/apod',
                 params: {count: 5, api_key: `${process.env.REACT_APP_API_KEY}`}
             }).then(res =>{
-                console.log(res.data)
                 setPictures(prevPictures => {
                   return [...prevPictures, ...res.data]
                 })
