@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Spacestagram
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+🪐 Spacestagram: Image-sharing from the final frontier. Shopify front-end developer intern challenge for summer 2022.
 
-## Available Scripts
+This web-app introduces a simple user interface which pulls images from NASA's Astronomy Picture of the Day (APOD) api, allowing the user to "like" and "unlike" their favourite images. Each image is stylized as a post with descriptive data such as: title, date, description and even generates a shareable link for the user.
 
-In the project directory, you can run:
+![App Overview](src/images/scrollThrough.gif)
 
-### `npm start`
+## Built With
+* [React](https://reactjs.org/)
+* [axios](https://www.npmjs.com/package/axios)
+* [MUI](https://mui.com/)
+* [CopytoClipboard](https://www.npmjs.com/package/react-copy-to-clipboard)
+* [APOD](https://api.nasa.gov/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run the project locally, you can get a free api key at <https://api.nasa.gov/>
 
-### `npm test`
+1. Clone this repo `git clone https://github.com/rkriar/spacestagram.git`
+2. run `npm install`
+3. Create a file at the root of the project named `.env`
+4. Create a variable inside the `.env` file with the following name: `REACT_APP_API_KEY=<YOUR_API_KEY>` where you replace `<YOUR_API_KEY>` by the api key received from NASA
+5. Run `npm start` to start the app on `http://localhost:3000`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Accessibility
+I used `alt` and `aria-label` tags for `img` and `button` elements used throughout the web-app. The HTML used is accessible and semantic, with `div` elements acting as containers. The elements inside the navbar and post objects can be tabbed through and are accessible via keyboard, displaying hover and focus states to the user. I used Lighthouse to check for remaining accessibility issues.
 
-### `npm run build`
+![Accessibility 100 Score](src/images/accessibility.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Current Features
+The current features include:
+- Infinite scrolling
+- Loading state when waiting for NASA's API to return data
+- Instagram-like UI
+- Random feed from APOD
+- Like/unlike picture 
+- Liked pictures are saved in local storage for user to view
+- Error handling for api
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Loading State
+![Loading State](src/images/loadingState.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Error Handling
+![Api Error Message](src/images/apiErrorCatch.png)
 
-### `npm run eject`
+![No Likes Message](src/images/noLikesimg.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
