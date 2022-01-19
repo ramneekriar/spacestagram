@@ -1,6 +1,6 @@
-import LoadingElement from "./LoadingElement";
-import "./Loading.css";
-import Shimmer from "./Shimmer";
+import LoadingElement from "./LoadingElement"
+import "./Loading.css"
+import Shimmer from "./Shimmer"
 
 const LoadingPost = () => {
     return (
@@ -23,4 +23,4 @@ const LoadingPost = () => {
     )
 }
 
-export default LoadingPost;
+export default LoadingPost

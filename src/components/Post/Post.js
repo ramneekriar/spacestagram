@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import './Post.css'
-import LoadingElement from '../Loading/LoadingElement';
-import { Avatar, Button, Box, IconButton, Popover, Tooltip } from '@mui/material';
-import { Close, Favorite, FavoriteBorder, SaveAlt } from '@mui/icons-material';
-import avatar from '../../images/nasa-logo.jpeg';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+import LoadingElement from '../Loading/LoadingElement'
+import { Avatar, Button, Box, IconButton, Popover, Tooltip } from '@mui/material'
+import { Close, Favorite, FavoriteBorder, SaveAlt } from '@mui/icons-material'
+import avatar from '../../images/nasa-logo.jpeg'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 function Post({username, imageUrl, title, date, caption, isFav}) {
-    const [loaded, setLoaded] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(isFav);
-    const [copied, setCopied] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null);
+    const [loaded, setLoaded] = useState(false)
+    const [isFavorite, setIsFavorite] = useState(isFav)
+    const [copied, setCopied] = useState(false)
+    const [anchorEl, setAnchorEl] = useState(null)
 
     const toggleFavorite = () => {
-        setIsFavorite(isFavorite => !isFavorite);
-        // handleLikedPosts();
+        setIsFavorite(isFavorite => !isFavorite)
     }
 
     const handleSaveClick = (e) => {
-        setAnchorEl(e.currentTarget);
-    };
+        setAnchorEl(e.currentTarget)
+    }
 
     const post = {
         username: username,
@@ -31,28 +30,26 @@ function Post({username, imageUrl, title, date, caption, isFav}) {
 
     useEffect(() => {
         if (isFavorite)
-            savePost();
+            savePost()
         else
-            unSavePost();
+            unSavePost()
     }, [isFavorite])
 
     function savePost() {
-        let data = JSON.stringify(post);
-        window.localStorage.setItem(date, data);
-        // console.log('Saved');
+        let data = JSON.stringify(post)
+        window.localStorage.setItem(date, data)
     }
 
     function unSavePost(){
-        window.localStorage.removeItem(date);
-        // console.log('Removed');
+        window.localStorage.removeItem(date)
     }
 
-    const open = Boolean(anchorEl);
+    const open = Boolean(anchorEl)
 
     const handleClose = () => {
-        setAnchorEl(null);
-        setCopied(false);
-    };
+        setAnchorEl(null)
+        setCopied(false)
+    }
 
     return (
         <div className="post">
@@ -125,4 +122,4 @@ function Post({username, imageUrl, title, date, caption, isFav}) {
     )
 }
 
-export default Post;
+export default Post

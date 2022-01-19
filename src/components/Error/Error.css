@@ -1,0 +1,70 @@
+.error{
+	display: flex;
+	width: 90%;
+	margin: auto;
+	min-height: 80vh;
+	align-items: center;
+}
+
+.error__message{
+    flex: 1;
+}
+
+.error__message h1{
+    font-size: 50px;
+	font-weight: 700;
+	background: linear-gradient(to right, #494964, #6f6f89);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.error__message p{
+    margin-top: 5px;
+	font-size: 28px;
+	color: #585772;
+}
+
+.error__image{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+    margin-top: 30px;
+	height: 80vh;
+}
+
+.error__image img{
+	height: 100%;
+	filter: drop-shadow(0px 5px 3px black);
+	animation: drop 1.5s ease;
+}
+
+
+@keyframes drop{
+	0%{
+		opacity: 0;
+		transform: translateY(-80px);
+	}
+	100%{
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@media screen and (max-width: 1350px){
+    .error{
+		flex-direction: column;
+	}
+    .error__message{
+		text-align: center;
+    }
+	.error__message h1{
+        margin-top: 20px;
+        font-size: 40px;
+    }
+    .error__message p{
+        font-size: 24px;
+    }
+    .error__image img{
+        height: 98%;
+    }
+}

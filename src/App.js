@@ -1,23 +1,25 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react'
-import DocumentTitle from 'react-document-title';
-import './App.css';
-import Post from './components/Post/Post';
-import Pictures from './Pictures';
-import LoadingPost from './components/Loading/LoadingPost';
-import { IconButton, Tooltip } from '@mui/material';
-import { Home, Favorite, Refresh } from '@mui/icons-material';
+import DocumentTitle from 'react-document-title'
+import './App.css'
+import Post from './components/Post/Post'
+import Pictures from './Pictures'
+import LoadingPost from './components/Loading/LoadingPost'
+import Error from './components/Error/Error'
+import { IconButton, Tooltip } from '@mui/material'
+import { Home, Favorite, Refresh } from '@mui/icons-material'
 
 function App() {
 
-  const [pageNumber, setPageNumber] = useState(1);
-  const [viewLikes, setViewLikes] = useState(false);
-  const [postObjects, setPostObjects] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1)
+  const [viewLikes, setViewLikes] = useState(false)
+  const [postObjects, setPostObjects] = useState([])
 
   const {
     loading,
+    error,
     hasMore,
     pictures
-  } = Pictures(pageNumber);
+  } = Pictures(pageNumber)
 
   const observer = useRef()
   const lastPostRef = useCallback(node => {
@@ -32,38 +34,37 @@ function App() {
   }, [loading, hasMore])
 
   function refreshHomePage() {
-      window.location.reload(false);
-      setViewLikes(false);  
+      window.location.reload(false)
+      setViewLikes(false)
   }
 
   function refreshCurrentPage () {
     if (viewLikes){
-      setPostObjects([]);
-      getLikedPosts();
+      setPostObjects([])
+      getLikedPosts()
     }
     else{
-      refreshHomePage();
+      refreshHomePage()
     }
   }
 
   const toggleViewLikes = () => {
-      setViewLikes(true);
+      setViewLikes(true)
   }
 
   function getLikedPosts () {
-    let keys = Object.keys(localStorage);
+    let keys = Object.keys(localStorage)
     for(let key of keys){
-      let object = JSON.parse(localStorage.getItem(key));
+      let object = JSON.parse(localStorage.getItem(key))
       setPostObjects(prevPostObjects => [...prevPostObjects, object])
     }
   }
 
   useEffect(() => {
-    if (viewLikes){
-      getLikedPosts();
-    }
+    if (viewLikes)
+      getLikedPosts()
 
-  }, [viewLikes]);
+  }, [viewLikes])
 
   return (
     <div className="App">
@@ -130,9 +131,10 @@ function App() {
           }
         })}
         <div>{loading && [1, 2, 3, 4, 5].map((n) => <LoadingPost aria-live="polite" aria-busy="true" key={n}/>)}</div>
+        <div>{error && <Error />}</div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
