@@ -60,6 +60,7 @@ function App() {
       setNoLikes(true)
     }
     else{
+      setNoLikes(false)
       for(let key of keys){
         let object = JSON.parse(localStorage.getItem(key))
         setPostObjects(prevPostObjects => [...prevPostObjects, object])
