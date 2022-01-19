@@ -1,4 +1,4 @@
-.error{
+.error, .noLikes{
 	display: flex;
 	width: 90%;
 	margin: auto;
@@ -6,11 +6,12 @@
 	align-items: center;
 }
 
-.error__message{
+.error__message, noLikes__message{
     flex: 1;
 }
 
-.error__message h1{
+.error__message h1,
+.noLikes__message h1{
     font-size: 50px;
 	font-weight: 700;
 	background: linear-gradient(to right, #494964, #6f6f89);
@@ -18,21 +19,29 @@
 	-webkit-text-fill-color: transparent;
 }
 
-.error__message p{
+.error__message p,
+.noLikes__message p{
     margin-top: 5px;
 	font-size: 28px;
 	color: #585772;
 }
 
-.error__image{
+.error__image,
+.noLikes__image{
 	flex: 1;
 	display: flex;
 	justify-content: center;
     margin-top: 30px;
 	height: 80vh;
+	margin-right: 20px;
 }
 
-.error__image img{
+.noLikes__image{
+	height: 60vh;
+}
+
+.error__image img
+.noLikes__image img{
 	height: 100%;
 	filter: drop-shadow(0px 5px 3px black);
 	animation: drop 1.5s ease;
@@ -51,20 +60,23 @@
 }
 
 @media screen and (max-width: 1350px){
-    .error{
+    .error, .noLikes{
 		flex-direction: column;
 	}
-    .error__message{
+    .error__message, .noLikes__message{
 		text-align: center;
     }
-	.error__message h1{
-        margin-top: 20px;
+	.error__message h1, .noLikes__message h1{
+        margin-top: 40px;
         font-size: 40px;
     }
-    .error__message p{
+    .error__message p, .noLikes__message p{
         font-size: 24px;
     }
     .error__image img{
         height: 98%;
     }
+	.noLikes__image img{
+		height: 98%;
+	}
 }

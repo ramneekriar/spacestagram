@@ -4,7 +4,8 @@ import './App.css'
 import Post from './components/Post/Post'
 import Pictures from './Pictures'
 import LoadingPost from './components/Loading/LoadingPost'
-import Error from './components/Error/Error'
+import Error from './components/Message/Error'
+import NoLikesMessage from './components/Message/NoLikes'
 import { IconButton, Tooltip } from '@mui/material'
 import { Home, Favorite, Refresh } from '@mui/icons-material'
 
@@ -13,6 +14,7 @@ function App() {
   const [pageNumber, setPageNumber] = useState(1)
   const [viewLikes, setViewLikes] = useState(false)
   const [postObjects, setPostObjects] = useState([])
+  const [noLikes, setNoLikes] = useState(false)
 
   const {
     loading,
@@ -54,9 +56,14 @@ function App() {
 
   function getLikedPosts () {
     let keys = Object.keys(localStorage)
-    for(let key of keys){
-      let object = JSON.parse(localStorage.getItem(key))
-      setPostObjects(prevPostObjects => [...prevPostObjects, object])
+    if (keys.length === 0){
+      setNoLikes(true)
+    }
+    else{
+      for(let key of keys){
+        let object = JSON.parse(localStorage.getItem(key))
+        setPostObjects(prevPostObjects => [...prevPostObjects, object])
+      }
     }
   }
 
@@ -132,6 +139,7 @@ function App() {
         })}
         <div>{loading && [1, 2, 3, 4, 5].map((n) => <LoadingPost aria-live="polite" aria-busy="true" key={n}/>)}</div>
         <div>{error && <Error />}</div>
+        <div>{noLikes && <NoLikesMessage />}</div>
       </div>
     </div>
   )

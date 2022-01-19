@@ -1,5 +1,5 @@
 import React from 'react'
-import './Error.css'
+import './Message.css'
 import err_image from '../../images/astronaut.png'
 function Error() {
     return (
@@ -11,7 +11,7 @@ function Error() {
                 <p>Refresh the page or try again later.</p>
             </div>
             <div className="error__image">
-                <img src={err_image}></img>
+                <img src={err_image} alt="Astronaut lost in space"></img>
             </div>
         </div>
     )
