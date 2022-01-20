@@ -46,3 +46,21 @@
 .favoriteFilled{
   color: #fb3958 !important;
 }
+
+@media screen and (max-width: 1350px){
+  .app{
+    flex-direction: column;
+  }
+  .app__header{
+    padding: 5px;
+  }
+  .app__nav-item{
+    flex: 1;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .app__headerLogo{
+    font-size: 30px;
+    padding: 2px;
+  }
+}
