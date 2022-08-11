@@ -21,7 +21,7 @@ This web-app introduces a simple user interface which pulls images from NASA's A
 To run the project locally, you can get a free api key at <https://api.nasa.gov/>
 
 1. Clone this repo `git clone https://github.com/rkriar/spacestagram.git`
-2. run `npm install`
+2. Run `npm install`
 3. Create a file at the root of the project named `.env`
 4. Create a variable inside the `.env` file with the following name: `REACT_APP_API_KEY=<YOUR_API_KEY>` where you replace `<YOUR_API_KEY>` by the api key received from NASA
 5. Run `npm start` to start the app on `http://localhost:3000`
