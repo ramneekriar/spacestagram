@@ -1,7 +1,7 @@
-# Spacestagram
+# 🪐 Spacestagram
 
 ## Description
-🪐 Spacestagram: Image-sharing from the final frontier. Shopify front-end developer intern challenge for summer 2022.
+Spacestagram: Image-sharing from the final frontier. Shopify front-end developer intern challenge for summer 2022.
 
 This web-app introduces a simple user interface which pulls images from NASA's Astronomy Picture of the Day (APOD) api, allowing the user to "like" and "unlike" their favourite images. Each image is stylized as a post with descriptive data such as: title, date, description and even generates a shareable link for the user.
 
